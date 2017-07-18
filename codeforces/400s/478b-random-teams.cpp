@@ -1,18 +1,19 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
-
-long long int pairs(long long int n)
-{
-    return n * (n - 1) / 2;
-}
-
+long long pair1(long long n);
 int main()
 {
-    long long int n, m;
-    cin >> n >> m;
-    long long int a(n / m), b(n % m);
-    long long int min = pairs(a) * (m - b) + pairs(a + 1) * b;
-    long long int max = pairs(n - m + 1);
-    cout << min << " " << max << endl;
-    return 0;
+    long long p,t,min1=0,max1=0;
+    cin>>p>>t;
+    long long t1=p/t;
+    long long r=p-(t1*t);
+      min1+=(pair1(t1))*(r);
+      min1+=pair1(t1-1)*(t-r);
+      max1=pair1(p-t);
+    cout<<min1<<" "<<max1<<endl;
+}
+
+long long pair1(long long n)
+{
+    return ((n*(n+1)/2));
 }
